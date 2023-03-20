@@ -1,0 +1,29 @@
+{"frames": {
+
+"fail.png":
+{
+	"frame": {"x":2,"y":2,"w":805,"h":224},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":805,"h":224},
+	"sourceSize": {"w":805,"h":224}
+},
+"niceWork.png":
+{
+	"frame": {"x":2,"y":230,"w":734,"h":312},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":734,"h":312},
+	"sourceSize": {"w":734,"h":312}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "spritesheet-1.png",
+	"format": "RGBA8888",
+	"size": {"w":809,"h":544},
+	"scale": "1",
+	"related_multi_packs": [ "spritesheet-0.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:24a66a24d4de2d3cf19b8b433f2e8ed3:122b25f13b523c00bcae337f983ac305:176aa43fb07d0fa69600402a8b96b3d8$"
+}
+}

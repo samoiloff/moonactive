@@ -1,13 +1,13 @@
 import {ViewBase} from "../../common/mvc/ViewBase";
 import * as PIXI from "pixi.js";
 import {GameModel} from "../model/GameModel";
-import {GameConstants} from "../GameConstants";
+import {GameConstants} from "../constants/GameConstants";
 
 export class GameView extends ViewBase {
     app: PIXI.Application;
     container: PIXI.Container;
 
-    background: PIXI.Graphics;
+    background: PIXI.Sprite;
 
     constructor(model: GameModel) {
         super(model);
@@ -18,13 +18,12 @@ export class GameView extends ViewBase {
             antialias: true,
             transparent: false,
             resolution: 1,
+            backgroundColor: 0xcfeffc
         });
+        document.body.appendChild(this.app.view);
 
         this.container = new PIXI.Container();
         this.app.stage.addChild(this.container);
-
-        this.background = new PIXI.Graphics();
-        this.background.beginFill()
 
     }
 

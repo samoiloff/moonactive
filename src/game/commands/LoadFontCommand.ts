@@ -1,16 +1,21 @@
 import {CommandBase} from "../../common/commands/CommandBase";
 import * as FontFaceObserver from 'fontfaceobserver';
+import {GameConstants} from "../constants/GameConstants";
 
 export class LoadFontCommand extends CommandBase {
 
     run(): Promise<any> {
-        var font = new FontFaceObserver('Chango');
+        console.log("LoadFontCommand.start()");
+        return new Promise<any>((resolve) => {
+            var font = new FontFaceObserver(GameConstants.resources.fontFamily);
 
-        font.load().then(function () {
-            console.log('Output Sans has loaded.');
-        }).catch(function () {
-            console.log('Output Sans failed to load.');
+            font.load().then(function () {
+                console.log("LoadFontCommand.success()");
+                resolve(null);
+            }).catch(function () {
+                console.log("LoadFontCommand.fail()");
+                resolve(null);
+            });
         });
-        return super.run();
     }
 }

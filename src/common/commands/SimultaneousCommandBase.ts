@@ -4,8 +4,9 @@ import { CommandResolveBase } from './CommandResolveBase';
 export class SimultaneousCommandBase extends CommandResolveBase {
     private commands: CommandBase[] = [];
 
-    add(command: CommandBase): void {
+    add(command: CommandBase): SimultaneousCommandBase {
         this.commands.push(command);
+        return this;
     }
 
     reset() {

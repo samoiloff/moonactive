@@ -6,3 +6,13 @@
     font-display: swap;
 }
 
+body {
+    background: #cfeffc;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
