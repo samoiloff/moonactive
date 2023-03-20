@@ -28,6 +28,7 @@ export class GameController extends ControllersBase {
         this.view.background.texture = ResourceUtils.getTexture('bg.jpg');
         this.view.container.addChild(this.view.background);
 
+        this.view.init();
 
         this.addController(GameResizeController);
     }

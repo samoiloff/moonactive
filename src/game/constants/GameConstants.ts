@@ -15,7 +15,24 @@ export const GameConstants = {
         'spritesheet-0.json',
         'spritesheet-1.json'
     ],
-    assets: {
-
+    textures: {
+        bg: 'bg.jpg',
+        fail: 'fail.png',
+        failBg: 'failBg.png',
+        niceWork: 'niceWork.png',
+        niceWorkBg: 'niceWorkBg.png',
+        startButtonBg: 'startButtonBg.png',
+        startPopupBg: 'startPopupBg.png',
+        tileBG: 'tileBG.png',
+        tileBlue: 'tileBlue.png',
+        tileGreen: 'tileGreen.png',
+        tileOrange: 'tileOrange.png',
+        tilePink: 'tilePink.png',
+        tileRed: 'tileRed.png',
+        tileYellow: 'tileYellow.png',
+        timerBg: 'timerBg.png',
+        timerProgress: 'timerProgress.png',
+        totalBg: 'totalBg.png',
+        totalText: 'totalText.png'
     }
 }

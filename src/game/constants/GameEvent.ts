@@ -1,3 +1,4 @@
 export const GameEvent = {
-    RESIZE: 'GameEvent.RESIZE'
+    RESIZE: 'GameEvent.RESIZE',
+    CLICK: 'GameEvent.CLICK'
 }
