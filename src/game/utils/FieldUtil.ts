@@ -1,5 +1,9 @@
 import {GameConstants} from "../constants/GameConstants";
 import {TileId} from "../constants/TileId";
+import {FieldCellView} from "../view/FieldCellView";
+import {GameView} from "../view/GameView";
+import {dGet} from "../../common/di/dGet";
+import * as PIXI from "pixi.js";
 
 export class FieldUtil {
 
@@ -29,6 +33,15 @@ export class FieldUtil {
         }
 
         return result.sort((a, b) => (Math.random() - .5)); // random mix of result
+    }
+
+    static getCellPointerOver(pos: PIXI.Point): FieldCellView {
+        const gameView: GameView = dGet(GameView);
+        const interactionManager: PIXI.InteractionManager = gameView.app.renderer.plugins.interaction;
+        const hitTest: any = interactionManager.hitTest(pos, gameView.fieldView.cells[0].container);
+        console.log(interactionManager);
+
+        return null;
     }
 
 }

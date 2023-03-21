@@ -26,7 +26,7 @@
 },
 "startButtonBg.png":
 {
-	"frame": {"x":378,"y":1980,"w":65,"h":138},
+	"frame": {"x":511,"y":1926,"w":65,"h":138},
 	"rotated": true,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":138},
@@ -34,7 +34,7 @@
 },
 "startPopupBg.png":
 {
-	"frame": {"x":2,"y":1926,"w":99,"h":238},
+	"frame": {"x":136,"y":1926,"w":99,"h":238},
 	"rotated": true,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":238},
@@ -42,7 +42,7 @@
 },
 "tileBG.png":
 {
-	"frame": {"x":1086,"y":1824,"w":208,"h":208},
+	"frame": {"x":1357,"y":1824,"w":208,"h":208},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":208},
@@ -50,31 +50,23 @@
 },
 "tileBlue.png":
 {
-	"frame": {"x":1642,"y":1824,"w":128,"h":128},
+	"frame": {"x":1219,"y":1878,"w":128,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"tileGreen.png":
+"tileError.png":
 {
-	"frame": {"x":1774,"y":1824,"w":128,"h":128},
+	"frame": {"x":1569,"y":1824,"w":208,"h":208},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
-	"sourceSize": {"w":128,"h":128}
-},
-"tileOrange.png":
-{
-	"frame": {"x":1906,"y":1824,"w":128,"h":128},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
-	"sourceSize": {"w":128,"h":128}
+	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":208},
+	"sourceSize": {"w":208,"h":208}
 },
 "tilePink.png":
 {
-	"frame": {"x":244,"y":1926,"w":130,"h":118},
+	"frame": {"x":2,"y":1926,"w":130,"h":118},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":130,"h":118},
@@ -82,7 +74,7 @@
 },
 "tileRed.png":
 {
-	"frame": {"x":649,"y":1926,"w":129,"h":104},
+	"frame": {"x":378,"y":1926,"w":129,"h":104},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":104},
@@ -90,7 +82,7 @@
 },
 "tileSelect.png":
 {
-	"frame": {"x":1298,"y":1824,"w":208,"h":208},
+	"frame": {"x":1781,"y":1824,"w":208,"h":208},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":208},
@@ -98,39 +90,39 @@
 },
 "tileYellow.png":
 {
-	"frame": {"x":1510,"y":1824,"w":129,"h":128},
-	"rotated": true,
+	"frame": {"x":1086,"y":1878,"w":129,"h":128},
+	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":128},
 	"sourceSize": {"w":129,"h":128}
 },
 "timerBg.png":
 {
-	"frame": {"x":609,"y":1980,"w":33,"h":23},
-	"rotated": true,
+	"frame": {"x":720,"y":1926,"w":33,"h":23},
+	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":23},
 	"sourceSize": {"w":33,"h":23}
 },
 "timerProgress.png":
 {
-	"frame": {"x":582,"y":1980,"w":41,"h":23},
-	"rotated": true,
+	"frame": {"x":511,"y":1995,"w":41,"h":23},
+	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":41,"h":23},
 	"sourceSize": {"w":41,"h":23}
 },
 "totalBg.png":
 {
-	"frame": {"x":520,"y":1980,"w":63,"h":58},
-	"rotated": true,
+	"frame": {"x":653,"y":1926,"w":63,"h":58},
+	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":58},
 	"sourceSize": {"w":63,"h":58}
 },
 "totalText.png":
 {
-	"frame": {"x":378,"y":1926,"w":267,"h":50},
+	"frame": {"x":1086,"y":1824,"w":267,"h":50},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":267,"h":50},
@@ -141,9 +133,9 @@
 	"version": "1.0",
 	"image": "spritesheet-0.png",
 	"format": "RGBA8888",
-	"size": {"w":2036,"h":2047},
+	"size": {"w":1998,"h":2046},
 	"scale": "1",
 	"related_multi_packs": [ "spritesheet-1.json" ],
-	"smartupdate": "$TexturePacker:SmartUpdate:24a66a24d4de2d3cf19b8b433f2e8ed3:122b25f13b523c00bcae337f983ac305:176aa43fb07d0fa69600402a8b96b3d8$"
+	"smartupdate": "$TexturePacker:SmartUpdate:d3aeb946bad7739978de744279be2355:c899b2f149c0b43021a0b37208792ffd:176aa43fb07d0fa69600402a8b96b3d8$"
 }
 }

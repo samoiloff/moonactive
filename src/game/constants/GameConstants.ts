@@ -37,6 +37,8 @@ export const GameConstants = {
         timerBg: 'timerBg.png',
         timerProgress: 'timerProgress.png',
         totalBg: 'totalBg.png',
-        totalText: 'totalText.png'
+        totalText: 'totalText.png',
+        tileError: 'tileError.png',
+        tileSelect: 'tileSelect.png'
     }
 }

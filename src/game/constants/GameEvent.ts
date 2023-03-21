@@ -3,5 +3,9 @@ export const GameEvent = {
     CLICK: 'GameEvent.CLICK',
     TILE_PRESSED: 'GameEvent.TILE_PRESSED',
     TILE_RELEASED: 'GameEvent.TILE_RELEASED',
-    RESET_TURN: 'GameEvent.RESET_TURN'
+    TILE_OVER: 'GameEvent.TILE_OVER',
+    TILE_OUT: 'GameEvent.TILE_OUT',
+    RESET_TURN: 'GameEvent.RESET_TURN',
+    CELL_OVER_ACTIVATED: 'GameEvent.CELL_OVER_ACTIVATED',
+    CELL_OVER_DEACTIVATED: 'GameEvent.CELL_OVER_DEACTIVATED',
 }

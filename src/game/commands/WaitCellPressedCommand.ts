@@ -32,6 +32,7 @@ export class WaitCellPressedCommand extends CommandResolveBase {
         const tile: FieldTileView = this.fieldView.tiles[cellIndex];
         this.fieldView.container.setChildIndex(tile.container, this.fieldView.container.children.length - 1);
         this.gameModel.tilePressed = tile;
+        this.gameModel.dispatch(GameEvent.CELL_OVER_ACTIVATED);
         console.log("WaitCellPressedCommand.onTilePressed() " + cell.x + ":" + cell.y);
 
         this.gameView.container.on("pointermove", this.onPointerMove, this);
@@ -58,8 +59,10 @@ export class WaitCellPressedCommand extends CommandResolveBase {
         })]
     }
 
-    protected onTileReleased(): void {
+    protected onTileReleased(tile: FieldCellView, event): void {
+        this.gameModel.dispatch(GameEvent.CELL_OVER_DEACTIVATED);
         this.gameView.container.off("pointermove", this.onPointerMove, this);
+        FieldUtil.getCellPointerOver(event.data.global);
         this.internalResolve();
     }
 
@@ -67,8 +70,6 @@ export class WaitCellPressedCommand extends CommandResolveBase {
         this.gameModel.removeListener(GameEvent.TILE_PRESSED, this.onTilePressed, this);
         this.gameModel.removeListener(GameEvent.TILE_RELEASED, this.onTileReleased, this);
         this.gameView.container.off("pointermove", this.onPointerMove, this);
-
-        // this.gameView.app.renderer.inter
 
         super.internalResolve();
     }

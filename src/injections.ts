@@ -18,29 +18,35 @@ import {ShadowView} from "./game/view/ShadowView";
 import {StartView} from "./game/view/StartView";
 import {WaitCellPressedCommand} from "./game/commands/WaitCellPressedCommand";
 import {MoveTileBackCommand} from "./game/commands/MoveTileBackCommand";
+import {GameCellOverController} from "./game/controller/GameCellOverController";
+import {MergeTilesCommand} from "./game/commands/MergeTilesCommand";
 
 export function addInjections() {
 
-    dMap(InitQueueCommand).asSingletone();
+    dMap(InitQueueCommand).asSingletone(); // init commands
     dMap(LoadSpriteSheetCommand).asSingletone();
     dMap(LoadFontCommand).asSingletone();
     dMap(LoadLocalizationCommand).asSingletone();
+
+    dMap(FlowQueueCommand).asSingletone(); // game flow commands
     dMap(WaitStartButtonClickCommand).asSingletone();
-    dMap(FlowQueueCommand).asSingletone();
-    dMap(GameModel).asSingletone();
-    dMap(GameView).asSingletone();
-    dMap(GameController).asSingletone();
-    dMap(Game).asSingletone();
-    dMap(GameResizeController).asSingletone();
-    dMap(GameFlowQueueController).asSingletone();
+    dMap(WaitCellPressedCommand).asSingletone();
+    dMap(MoveTileBackCommand).asSingletone();
+    dMap(MergeTilesCommand).asSingletone();
+
+    dMap(Game).asSingletone(); // main component
+
+    dMap(GameModel).asSingletone(); // model
+
+    dMap(GameView).asSingletone(); // views
     dMap(FieldView).asSingletone();
     dMap(ShadowView).asSingletone();
     dMap(StartView).asSingletone();
     dMap(FieldTileView);
     dMap(FieldCellView);
-    dMap(WaitCellPressedCommand).asSingletone();
-    dMap(MoveTileBackCommand).asSingletone();
 
-
-
+    dMap(GameController).asSingletone(); // controllers
+    dMap(GameResizeController).asSingletone();
+    dMap(GameFlowQueueController).asSingletone();
+    dMap(GameCellOverController).asSingletone();
 }

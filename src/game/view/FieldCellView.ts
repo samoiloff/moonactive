@@ -4,6 +4,8 @@ import {GameConstants} from "../constants/GameConstants";
 import {GameModel} from "../model/GameModel";
 import {dGet} from "../../common/di/dGet";
 import {GameEvent} from "../constants/GameEvent";
+import {Resource} from "pixi.js";
+import {AnimUtil} from "../utils/AnimUtil";
 
 export class FieldCellView {
 
@@ -17,11 +19,22 @@ export class FieldCellView {
 
     protected model: GameModel = dGet(GameModel);
 
+    tileCorrect: PIXI.Sprite;
+    tileWrong: PIXI.Sprite;
+
     constructor() {
         this.container = new PIXI.Container();
 
         this.bg = new PIXI.Sprite(ResourceUtils.getTexture(GameConstants.textures.tileBG));
         this.container.addChild(this.bg);
+
+        this.tileCorrect = new PIXI.Sprite(ResourceUtils.getTexture(GameConstants.textures.tileSelect));
+        this.container.addChild(this.tileCorrect);
+        this.tileCorrect.visible = false;
+
+        this.tileWrong = new PIXI.Sprite(ResourceUtils.getTexture(GameConstants.textures.tileError));
+        this.container.addChild(this.tileWrong);
+        this.tileWrong.visible = false;
 
         this.hitMc = new PIXI.Graphics();
         this.hitMc.beginFill(0x00ff00, 1);
@@ -34,10 +47,23 @@ export class FieldCellView {
         this.hitMc.on("pointerdown", this.onCellDown, this);
         this.hitMc.on("pointerup", this.onCellUp, this);
         this.hitMc.on("pointerupoutside", this.onCellUp, this);
+
+        this.hitMc.on("pointerover", this.onCellOver, this);
+        this.hitMc.on("pointerout", this.onCellOut, this);
     }
 
     public setEnabled(value: boolean): void {
         this.hitMc.interactive = value;
+    }
+
+    onCellOver(event): void {
+        this.model.emit(GameEvent.TILE_OVER, this, event);
+        event.stopPropagation();
+    }
+
+    onCellOut(event): void {
+        this.model.emit(GameEvent.TILE_OUT, this, event);
+        event.stopPropagation();
     }
 
     onCellDown(event): void {

@@ -7,6 +7,7 @@ import * as PIXI from "pixi.js";
 import {ResourceUtils} from "../utils/ResourceUtils";
 import {GameResizeController} from "./GameResizeController";
 import {GameFlowQueueController} from "./GameFlowQueueController";
+import {GameCellOverController} from "./GameCellOverController";
 
 export class GameController extends ControllersBase {
 
@@ -33,6 +34,7 @@ export class GameController extends ControllersBase {
 
         this.addController(GameResizeController);
         this.addController(GameFlowQueueController);
+        this.addController(GameCellOverController);
 
     }
 }

@@ -22,11 +22,29 @@ export class AnimUtil {
         }
     }
 
+    public static scaleDown(container: PIXI.DisplayObject, duration: number = .5, delay: number = 0): Promise<any> {
+        return new Promise<any>((resolve) => {
+            gsap.killTweensOf(container, "x,y");
+            gsap.to(container.scale, {
+                x: 0.1,
+                y: 0.1,
+                duration,
+                delay,
+                ease: Back.easeOut,
+                onComplete: () => {
+                    container.visible = false;
+                    resolve(null);
+                }
+            });
+        });
+    }
+
 
     public static fadeIn(container: PIXI.DisplayObject, duration: number = .5, delay: number = 0): Promise<any> {
         return new Promise<any>((resolve) => {
             container.alpha = 0;
             container.visible = true;
+            gsap.killTweensOf(container, "alpha");
             gsap.to(container, {
                 alpha: 1,
                 duration,
@@ -41,6 +59,7 @@ export class AnimUtil {
 
     public static fadeOut(container: PIXI.DisplayObject, duration: number = .5, delay: number = 0): Promise<any> {
         return new Promise<any>((resolve) => {
+            gsap.killTweensOf(container, "alpha");
             gsap.to(container, {
                 alpha: 0,
                 duration,

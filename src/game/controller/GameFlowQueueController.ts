@@ -5,6 +5,7 @@ import {WaitStartButtonClickCommand} from "../commands/WaitStartButtonClickComma
 import {WaitCellPressedCommand} from "../commands/WaitCellPressedCommand";
 import {MoveTileBackCommand} from "../commands/MoveTileBackCommand";
 import {GameEvent} from "../constants/GameEvent";
+import {MergeTilesCommand} from "../commands/MergeTilesCommand";
 
 export class GameFlowQueueController extends GameControllerBase {
 
@@ -18,6 +19,7 @@ export class GameFlowQueueController extends GameControllerBase {
         this.startTurnCommand = dGet(WaitCellPressedCommand);
         this.queue.add(this.startTurnCommand);
         this.queue.add(dGet(MoveTileBackCommand));
+        this.queue.add(dGet(MergeTilesCommand));
 
         this.queue.run();
 
