@@ -3,6 +3,8 @@ import * as PIXI from "pixi.js";
 import {ResourceUtils} from "../utils/ResourceUtils";
 import {GameConstants} from "../constants/GameConstants";
 import {IRectVO} from "../interfaces/IRectVO";
+import {GameTextStyles} from "../constants/GameTextStyles";
+import {LangUtil} from "../utils/LangUtil";
 
 export class StartButton extends Slice9Button {
 
@@ -12,19 +14,11 @@ export class StartButton extends Slice9Button {
     }
 
     getLabel(): string {
-        return "START";
+        return LangUtil.get(LangUtil.keys.startButton);
     }
 
     getLabelStyle(): PIXI.TextStyle {
-        const result: PIXI.TextStyle =  new PIXI.TextStyle();
-        result.fill = 0xffffff;
-        result.fontFamily = GameConstants.resources.fontFamily;
-        result.fontWeight = "normal";
-        result.dropShadow = true;
-        result.dropShadowDistance = 1;
-        result.fontSize = 56;
-        result.align = "center";
-        return result;
+        return GameTextStyles.startButton;
     }
 
     getTexture(): PIXI.Texture {

@@ -1,4 +1,8 @@
 export const GameConstants = {
+    field: {
+        width: 4,
+        height: 4
+    },
     layout: {
         space: 10,
         viewport: {

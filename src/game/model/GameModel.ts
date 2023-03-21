@@ -1,8 +1,13 @@
 import {ModelBase} from "../../common/mvc/ModelBase";
+import {FieldTileView} from "../view/FieldTileView";
 
 export class GameModel extends ModelBase {
 
-    public width: number;
-    public height: number;
+    width: number;
+    height: number;
+
+    tilePressed: FieldTileView;
+    tileMergeTo: FieldTileView;
+
 
 }

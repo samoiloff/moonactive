@@ -6,6 +6,7 @@ import {GameModel} from "../model/GameModel";
 import * as PIXI from "pixi.js";
 import {ResourceUtils} from "../utils/ResourceUtils";
 import {GameResizeController} from "./GameResizeController";
+import {GameFlowQueueController} from "./GameFlowQueueController";
 
 export class GameController extends ControllersBase {
 
@@ -31,5 +32,7 @@ export class GameController extends ControllersBase {
         this.view.init();
 
         this.addController(GameResizeController);
+        this.addController(GameFlowQueueController);
+
     }
 }

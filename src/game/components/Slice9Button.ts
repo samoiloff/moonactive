@@ -19,7 +19,11 @@ export class Slice9Button extends LabelButton {
         this.container.addChild(this.label);
         this.alignLabel();
 
-        this.container.addListener("pointerdown", this.onPointerDown, this);
+        this.container.interactive = false;
+        this.label.interactive = false;
+        this.spriteBg.interactive = true;
+        this.spriteBg.cursor = "pointer";
+        this.spriteBg.addListener("pointerdown", this.onPointerDown, this);
     }
 
     getPlaneSlice(): IRectVO {

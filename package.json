@@ -17,6 +17,7 @@
     "vite": "4.2.0"
   },
   "dependencies": {
+    "@pixi/filter-drop-shadow": "^5.2.0",
     "eventemitter3": "4.0.7",
     "fontfaceobserver": "2.3.0",
     "gsap": "3.10.4",

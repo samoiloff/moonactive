@@ -3,13 +3,18 @@ import * as PIXI from "pixi.js";
 import {GameModel} from "../model/GameModel";
 import {GameConstants} from "../constants/GameConstants";
 import {StartView} from "./StartView";
+import {ShadowView} from "./ShadowView";
+import {dGet} from "../../common/di/dGet";
+import {FieldView} from "./FieldView";
 
 export class GameView extends ViewBase {
     app: PIXI.Application;
     container: PIXI.Container;
 
     background: PIXI.Sprite;
+    shadowView: ShadowView;
     startView: StartView;
+    fieldView: FieldView;
 
     constructor(model: GameModel) {
         super(model);
@@ -25,12 +30,22 @@ export class GameView extends ViewBase {
         document.body.appendChild(this.app.view);
 
         this.container = new PIXI.Container();
+        this.container.interactive = true;
         this.app.stage.addChild(this.container);
     }
 
     public init(): void {
-        this.startView = new StartView();
+
+        this.fieldView = dGet(FieldView);
+        this.container.addChild(this.fieldView.container);
+
+        this.shadowView  = dGet(ShadowView);
+        this.container.addChild(this.shadowView);
+
+        this.startView = dGet(StartView);
         this.container.addChild(this.startView.container);
+
+
     }
 
 }

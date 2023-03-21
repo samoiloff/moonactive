@@ -1,5 +1,4 @@
 import {GameControllerBase} from "./GameControllerBase";
-import {OrientationType} from "../constants/OrientationType";
 import {LayoutUtils} from "../utils/LayoutUtils";
 import {GameEvent} from "../constants/GameEvent";
 import {GameConstants} from "../constants/GameConstants";
