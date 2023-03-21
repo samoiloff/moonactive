@@ -23,8 +23,8 @@ export class MergeTilesCommand extends CommandResolveBase {
         const tilePressed: FieldTileView = this.gameModel.tilePressed;
 
         const promises: Promise<any>[] = [];
-        promises.push(AnimUtil.scaleDown(this.gameModel.tilePressed.container));
-        promises.push(AnimUtil.scaleDown(this.gameModel.tileMergeTo.container));
+        promises.push(AnimUtil.scaleTileDown(this.gameModel.tilePressed.container, cell));
+        promises.push(AnimUtil.scaleTileDown(this.gameModel.tileMergeTo.container, cell));
         promises.push(AnimUtil.setVisible(cell.tileCorrect, false));
 
         Promise.all(promises).then(() => {

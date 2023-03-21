@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import {gsap, Back, Power2} from "gsap";
+import {FieldCellView} from "../view/FieldCellView";
 
 export class AnimUtil {
 
@@ -22,9 +23,16 @@ export class AnimUtil {
         }
     }
 
-    public static scaleDown(container: PIXI.DisplayObject, duration: number = .5, delay: number = 0): Promise<any> {
+    public static scaleTileDown(container: PIXI.DisplayObject, cell: FieldCellView, duration: number = .5, delay: number = 0): Promise<any> {
         return new Promise<any>((resolve) => {
             gsap.killTweensOf(container, "x,y");
+            gsap.to(container, {
+                x: cell.getCenterX(),
+                y: cell.getCenterY(),
+                duration,
+                delay,
+                ease: Power2.easeOut
+            });
             gsap.to(container.scale, {
                 x: 0,
                 y: 0,
