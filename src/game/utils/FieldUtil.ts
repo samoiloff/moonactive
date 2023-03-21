@@ -4,6 +4,8 @@ import {FieldCellView} from "../view/FieldCellView";
 import {GameView} from "../view/GameView";
 import {dGet} from "../../common/di/dGet";
 import * as PIXI from "pixi.js";
+import {FieldView} from "../view/FieldView";
+import {FieldTileView} from "../view/FieldTileView";
 
 export class FieldUtil {
 
@@ -42,6 +44,17 @@ export class FieldUtil {
         console.log(interactionManager);
 
         return null;
+    }
+
+    static getIsLevelComplete(): boolean {
+        const fieldView: FieldView = dGet(FieldView);
+        for (let index: number = 0; index < fieldView.tiles.length; index++) {
+            const tile: FieldTileView = fieldView.tiles[index];
+            if (!tile.merged) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

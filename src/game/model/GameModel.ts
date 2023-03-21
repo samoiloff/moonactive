@@ -9,7 +9,6 @@ export class GameModel extends ModelBase {
     tilePressed: FieldTileView;
     tileMergeTo: FieldTileView;
 
-
-
+    timerStarted: boolean;
 
 }

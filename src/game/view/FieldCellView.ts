@@ -4,8 +4,7 @@ import {GameConstants} from "../constants/GameConstants";
 import {GameModel} from "../model/GameModel";
 import {dGet} from "../../common/di/dGet";
 import {GameEvent} from "../constants/GameEvent";
-import {Resource} from "pixi.js";
-import {AnimUtil} from "../utils/AnimUtil";
+import {gsap} from "gsap";
 
 export class FieldCellView {
 
@@ -50,6 +49,13 @@ export class FieldCellView {
 
         this.hitMc.on("pointerover", this.onCellOver, this);
         this.hitMc.on("pointerout", this.onCellOut, this);
+    }
+
+    reset(): void {
+        gsap.killTweensOf(this.tileCorrect);
+        gsap.killTweensOf(this.tileWrong);
+        this.tileWrong.visible = false;
+        this.tileCorrect.visible = false;
     }
 
     public setEnabled(value: boolean): void {

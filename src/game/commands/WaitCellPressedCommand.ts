@@ -7,9 +7,8 @@ import {FieldUtil} from "../utils/FieldUtil";
 import {FieldTileView} from "../view/FieldTileView";
 import {GameView} from "../view/GameView";
 import * as PIXI from "pixi.js";
-import {IPointVO} from "../interfaces/IPointVO";
 import {FieldView} from "../view/FieldView";
-import {gsap, Elastic, Back, Quad, Power2} from "gsap";
+import {gsap} from "gsap";
 import {DropShadowFilter} from "@pixi/filter-drop-shadow";
 
 
@@ -27,7 +26,19 @@ export class WaitCellPressedCommand extends CommandResolveBase {
         this.gameModel.addListener(GameEvent.TILE_PRESSED, this.onTilePressed, this);
     }
 
+    reset() {
+        this.gameModel.removeListener(GameEvent.TILE_PRESSED, this.onTilePressed, this);
+        this.gameModel.removeListener(GameEvent.TILE_RELEASED, this.onTileReleased, this);
+        this.gameView.container.off("pointermove", this.onPointerMove, this);
+        super.reset();
+    }
+
     protected onTilePressed(cell: FieldCellView, event: any): void {
+
+        if (!this.gameModel.timerStarted) {
+            this.gameView.timerView.startTimer();
+        }
+
         const cellIndex: number = FieldUtil.positionToIndex(cell.x, cell.y);
         const tile: FieldTileView = this.fieldView.tiles[cellIndex];
         this.fieldView.container.setChildIndex(tile.container, this.fieldView.container.children.length - 1);
@@ -37,7 +48,6 @@ export class WaitCellPressedCommand extends CommandResolveBase {
 
         this.gameView.container.on("pointermove", this.onPointerMove, this);
         this.gameModel.addListener(GameEvent.TILE_RELEASED, this.onTileReleased, this);
-
     }
 
     protected onPointerMove(event: PIXI.InteractionEvent): void {

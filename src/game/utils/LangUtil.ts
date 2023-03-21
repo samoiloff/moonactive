@@ -4,7 +4,8 @@ export class LangUtil {
 
     public static keys = {
         startButton: 'startButton',
-        startLabel: 'startLabel'
+        startLabel: 'startLabel',
+        tryAgain: 'tryAgain'
     }
 
     static get(key: string): string {

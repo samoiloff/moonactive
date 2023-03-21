@@ -1,7 +1,8 @@
 export const GameConstants = {
     field: {
         width: 4,
-        height: 4
+        height: 4,
+        timeLimit: 12
     },
     layout: {
         space: 10,

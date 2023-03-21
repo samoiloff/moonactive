@@ -6,7 +6,6 @@ import {FieldTileView} from "../view/FieldTileView";
 import {FieldCellView} from "../view/FieldCellView";
 import {FieldView} from "../view/FieldView";
 import {CommandResolveBase} from "../../common/commands/CommandResolveBase";
-import {GameEvent} from "../constants/GameEvent";
 import {AnimUtil} from "../utils/AnimUtil";
 import {GameView} from "../view/GameView";
 
@@ -36,7 +35,7 @@ export class MoveTileBackCommand extends CommandResolveBase {
             onComplete: () => {
                 this.gameModel.tilePressed.container.filters = null;
                 this.gameModel.tilePressed = null;
-                this.gameModel.dispatch(GameEvent.RESET_TURN);
+                this.internalResolve();
             }
         })
     }

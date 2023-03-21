@@ -1,5 +1,5 @@
 import * as PIXI from "pixi.js";
-import {gsap, Back} from "gsap";
+import {gsap, Back, Power2} from "gsap";
 
 export class AnimUtil {
 
@@ -26,11 +26,11 @@ export class AnimUtil {
         return new Promise<any>((resolve) => {
             gsap.killTweensOf(container, "x,y");
             gsap.to(container.scale, {
-                x: 0.1,
-                y: 0.1,
+                x: 0,
+                y: 0,
                 duration,
                 delay,
-                ease: Back.easeOut,
+                ease: Power2.easeOut,
                 onComplete: () => {
                     container.visible = false;
                     resolve(null);
@@ -49,7 +49,7 @@ export class AnimUtil {
                 alpha: 1,
                 duration,
                 delay,
-                ease: Back.easeOut,
+                ease: Power2.easeOut,
                 onComplete: () => {
                     resolve(null);
                 }
@@ -64,7 +64,7 @@ export class AnimUtil {
                 alpha: 0,
                 duration,
                 delay,
-                ease: Back.easeOut,
+                ease: Power2.easeOut,
                 onComplete: () => {
                     container.alpha = 0;
                     container.visible = false;

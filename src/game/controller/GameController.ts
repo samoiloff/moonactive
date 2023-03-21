@@ -35,6 +35,5 @@ export class GameController extends ControllersBase {
         this.addController(GameResizeController);
         this.addController(GameFlowQueueController);
         this.addController(GameCellOverController);
-
     }
 }

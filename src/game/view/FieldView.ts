@@ -35,6 +35,13 @@ export class FieldView {
 
     }
 
+    reset(): void {
+        this.cells.forEach((cell) => {
+            cell.reset();
+        });
+        this.fillTiles(FieldUtil.getRandomTileIds());
+    }
+
     fillTiles(tilesIds: number[]): void {
         this.clearTiles();
 
@@ -59,6 +66,7 @@ export class FieldView {
         if (this.tiles.length > 0) {
             this.tiles.forEach((tile) => {
                 this.container.removeChild(tile.container);
+                tile.destroy();
             });
             this.tiles = [];
         }

@@ -20,6 +20,12 @@ import {WaitCellPressedCommand} from "./game/commands/WaitCellPressedCommand";
 import {MoveTileBackCommand} from "./game/commands/MoveTileBackCommand";
 import {GameCellOverController} from "./game/controller/GameCellOverController";
 import {MergeTilesCommand} from "./game/commands/MergeTilesCommand";
+import {TimerView} from "./game/view/TimerView";
+import {CheckLevelCompleteCommand} from "./game/commands/CheckLevelCompleteCommand";
+import {ShowWinViewComand} from "./game/commands/ShowWinViewComand";
+import {ShowLooseViewCommand} from "./game/commands/ShowLooseViewCommand";
+import {WinView} from "./game/view/WinView";
+import {LooseView} from "./game/view/LooseView";
 
 export function addInjections() {
 
@@ -33,6 +39,9 @@ export function addInjections() {
     dMap(WaitCellPressedCommand).asSingletone();
     dMap(MoveTileBackCommand).asSingletone();
     dMap(MergeTilesCommand).asSingletone();
+    dMap(CheckLevelCompleteCommand).asSingletone();
+    dMap(ShowWinViewComand).asSingletone();
+    dMap(ShowLooseViewCommand).asSingletone();
 
     dMap(Game).asSingletone(); // main component
 
@@ -44,6 +53,9 @@ export function addInjections() {
     dMap(StartView).asSingletone();
     dMap(FieldTileView);
     dMap(FieldCellView);
+    dMap(TimerView).asSingletone();
+    dMap(WinView).asSingletone();
+    dMap(LooseView).asSingletone();
 
     dMap(GameController).asSingletone(); // controllers
     dMap(GameResizeController).asSingletone();

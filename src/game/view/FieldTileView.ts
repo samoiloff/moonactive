@@ -2,6 +2,7 @@ import * as PIXI from "pixi.js";
 import {TileId} from "../constants/TileId";
 import {ResourceUtils} from "../utils/ResourceUtils";
 import {GameConstants} from "../constants/GameConstants";
+import {gsap} from "gsap";
 
 export class FieldTileView {
 
@@ -9,7 +10,9 @@ export class FieldTileView {
 
     x: number;
     y: number;
-    tileId: TileId
+    tileId: TileId;
+
+    merged: boolean;
 
     constructor() {
         this.container = new PIXI.Sprite();
@@ -39,6 +42,12 @@ export class FieldTileView {
             default:
                 throw new Error('Texture not found');
         }
+    }
+
+    destroy(): void {
+        gsap.killTweensOf(this.container);
+        this.container.destroy();
+        this.container = null;
     }
 
 }

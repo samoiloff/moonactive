@@ -1,4 +1,5 @@
 {
   "startButton": "START",
-  "startLabel": "Merge all similar items\nbefore time runs out"
+  "startLabel": "Merge all similar items\nbefore time runs out",
+  "tryAgain": "TRY AGAIN"
 }
