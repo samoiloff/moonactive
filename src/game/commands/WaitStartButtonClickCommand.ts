@@ -3,7 +3,6 @@ import {GameView} from "../view/GameView";
 import {dGet} from "../../common/di/dGet";
 import {GameEvent} from "../constants/GameEvent";
 import {AnimUtil} from "../utils/AnimUtil";
-import {GameModel} from "../model/GameModel";
 
 export class WaitStartButtonClickCommand extends CommandResolveBase {
 

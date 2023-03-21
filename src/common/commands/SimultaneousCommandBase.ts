@@ -1,5 +1,5 @@
-import { CommandBase } from './CommandBase';
-import { CommandResolveBase } from './CommandResolveBase';
+import {CommandBase} from './CommandBase';
+import {CommandResolveBase} from './CommandResolveBase';
 
 export class SimultaneousCommandBase extends CommandResolveBase {
     private commands: CommandBase[] = [];

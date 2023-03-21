@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import {GameConstants} from "../constants/GameConstants";
+
 export class ResourceUtils {
 
     static getSpriteSheet(name: string = null): PIXI.Spritesheet {

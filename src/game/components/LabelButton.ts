@@ -1,5 +1,4 @@
 import * as PIXI from "pixi.js";
-import {ResourceUtils} from "../utils/ResourceUtils";
 import {GameEvent} from "../constants/GameEvent";
 
 export class LabelButton {

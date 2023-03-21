@@ -1,4 +1,3 @@
-import {GameController} from "./GameController";
 import {ControllerBase} from "../../common/mvc/ControllerBase";
 import {GameModel} from "../model/GameModel";
 import {GameView} from "../view/GameView";

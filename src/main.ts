@@ -4,6 +4,5 @@ import {dGet} from "./common/di/dGet";
 import {Game} from "./game/Game";
 
 
-
 addInjections();
 dGet(Game);

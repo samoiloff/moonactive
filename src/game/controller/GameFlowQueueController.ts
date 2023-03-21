@@ -2,7 +2,6 @@ import {GameControllerBase} from "./GameControllerBase";
 import {FlowQueueCommand} from "../commands/FlowQueueCommand";
 import {dGet} from "../../common/di/dGet";
 import {GameEvent} from "../constants/GameEvent";
-import {FieldUtil} from "../utils/FieldUtil";
 import {AnimUtil} from "../utils/AnimUtil";
 
 export class GameFlowQueueController extends GameControllerBase {

@@ -3,6 +3,7 @@ import {StartButton} from "../components/StartButton";
 import {ResourceUtils} from "../utils/ResourceUtils";
 import {GameTextStyles} from "../constants/GameTextStyles";
 import {LangUtil} from "../utils/LangUtil";
+
 export class StartView {
 
     container: PIXI.Container;

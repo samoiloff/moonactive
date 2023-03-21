@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import {ISizeVO} from "../interfaces/ISizeVO";
 import {IRectVO} from "../interfaces/IRectVO";
+
 export class LayoutUtils {
 
     static fitRectIn(

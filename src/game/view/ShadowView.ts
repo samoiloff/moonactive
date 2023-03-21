@@ -1,6 +1,5 @@
 import * as PIXI from 'pixi.js';
 import {GameConstants} from "../constants/GameConstants";
-import {AnimUtil} from "../utils/AnimUtil";
 
 export class ShadowView extends PIXI.Graphics {
 

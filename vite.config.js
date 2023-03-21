@@ -12,13 +12,13 @@ export default ({mode}) => {
             port: 9004,
             host: true
         },
+
+        optimizeDeps: {
+            disabled: false,
+        },
         build: {
-            assetsInlineLimit: 0,
-            sourcemap: !isProd,
-            target: isProd ? 'es2015' : 'esnext',
-            minify: isProd ? 'terser' : false,
             commonjsOptions: {
-                transformMixedEsModules: true
+                include: []
             }
         }
     })

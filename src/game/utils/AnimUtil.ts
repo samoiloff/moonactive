@@ -1,5 +1,5 @@
 import * as PIXI from "pixi.js";
-import {gsap, Back, Power2} from "gsap";
+import {gsap, Power2} from "gsap";
 import {FieldCellView} from "../view/FieldCellView";
 
 export class AnimUtil {

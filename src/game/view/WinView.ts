@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import {ResourceUtils} from "../utils/ResourceUtils";
 import {GameConstants} from "../constants/GameConstants";
-import {gsap, Elastic, Power2} from 'gsap';
+import {Elastic, gsap, Power2} from 'gsap';
 
 export class WinView {
 

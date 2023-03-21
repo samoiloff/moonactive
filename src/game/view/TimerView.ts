@@ -5,6 +5,7 @@ import {GameConstants} from "../constants/GameConstants";
 import {GameModel} from "../model/GameModel";
 import {dGet} from "../../common/di/dGet";
 import {GameEvent} from "../constants/GameEvent";
+
 export class TimerView {
 
     container: PIXI.Container;
