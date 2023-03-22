@@ -9,7 +9,7 @@ export class ShowWinViewComand extends CommandResolveBase {
 
     protected internalRun() {
 
-        AnimUtil.fadeIn(this.gameView.shadowView);
+        AnimUtil.fadeIn(this.gameView.shadowView.container);
 
         this.gameView.timerView.pauseTimer();
 

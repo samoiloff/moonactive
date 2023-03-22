@@ -11,7 +11,7 @@ export class ShowLooseViewCommand extends CommandResolveBase {
     protected gameView: GameView = dGet(GameView);
 
     protected internalRun() {
-        AnimUtil.fadeIn(this.gameView.shadowView);
+        AnimUtil.fadeIn(this.gameView.shadowView.container);
         this.gameView.looseView.show().then(() => {
             this.gameView.looseView.btn.container.addListener(GameEvent.CLICK, this.onBtnClick, this);
         });

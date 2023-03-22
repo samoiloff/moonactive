@@ -16,7 +16,7 @@ export class WaitStartButtonClickCommand extends CommandResolveBase {
 
         this.gameView.startView.button.container.removeListener(GameEvent.CLICK, this.onStartButtonClick, this);
         AnimUtil.fadeOut(this.gameView.startView.container).then(() => {
-            AnimUtil.fadeOut(this.gameView.shadowView).then(() => {
+            AnimUtil.fadeOut(this.gameView.shadowView.container).then(() => {
                 this.internalResolve();
             })
         })

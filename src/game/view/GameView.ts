@@ -9,12 +9,13 @@ import {FieldView} from "./FieldView";
 import {TimerView} from "./TimerView";
 import {WinView} from "./WinView";
 import {LooseView} from "./LooseView";
+import {BackgroundView} from "./BackgroundView";
 
 export class GameView extends ViewBase {
     app: PIXI.Application;
     container: PIXI.Container;
 
-    background: PIXI.Sprite;
+    background: BackgroundView;
     shadowView: ShadowView;
     startView: StartView;
     fieldView: FieldView;
@@ -27,8 +28,8 @@ export class GameView extends ViewBase {
         super(model);
 
         this.app = new PIXI.Application({
-            width: GameConstants.layout.viewport.width,
-            height: GameConstants.layout.viewport.height,
+            width: GameConstants.layout.viewportPortrait.width,
+            height: GameConstants.layout.viewportPortrait.height,
             antialias: true,
             transparent: false,
             resolution: 1,
@@ -42,6 +43,8 @@ export class GameView extends ViewBase {
     }
 
     public init(): void {
+        this.background = dGet(BackgroundView);
+        this.container.addChild(this.background.container)
 
         this.fieldView = dGet(FieldView);
         this.container.addChild(this.fieldView.container);
@@ -50,7 +53,7 @@ export class GameView extends ViewBase {
         this.container.addChild(this.timerView.container);
 
         this.shadowView  = dGet(ShadowView);
-        this.container.addChild(this.shadowView);
+        this.container.addChild(this.shadowView.container);
 
         this.startView = dGet(StartView);
         this.container.addChild(this.startView.container);

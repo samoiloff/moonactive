@@ -5,8 +5,8 @@ import {IRectVO} from "../interfaces/IRectVO";
 export class Slice9Button extends LabelButton {
 
     initialize() {
-        this.container = new PIXI.Sprite();
-        this.container.interactive = true;
+        this.container = new PIXI.Container();
+        this.container.interactive = false;
         this.container.interactiveChildren = true;
 
         const planeSlice: IRectVO = this.getPlaneSlice();

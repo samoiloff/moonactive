@@ -4,20 +4,20 @@ import {FieldCellView} from "./FieldCellView";
 import {FieldTileView} from "./FieldTileView";
 import {dGet} from "../../common/di/dGet";
 import {FieldUtil} from "../utils/FieldUtil";
+import {OrientatedViewBase} from "./OrientatedViewBase";
 
-export class FieldView {
+export class FieldView extends OrientatedViewBase {
 
     container: PIXI.Container;
 
-    cells: FieldCellView[] = [];
+    cells: FieldCellView[];
+    tiles: FieldTileView[];
 
-    tiles: FieldTileView[] = [];
-
-    constructor() {
+    initialize() {
+        this.cells = [];
+        this.tiles = []
 
         this.container = new PIXI.Container();
-        this.container.x = 87;
-        this.container.y = 475;
 
         for (let y: number = 0; y < GameConstants.field.height; y++) {
             for (let x: number = 0; x < GameConstants.field.width; x++) {
@@ -33,6 +33,17 @@ export class FieldView {
 
         this.fillTiles(FieldUtil.getRandomTileIds());
 
+        super.initialize();
+    }
+
+    portraitLayout() {
+        this.container.x = 87;
+        this.container.y = 475;
+    }
+
+    landscapeLayout() {
+        this.container.x = 500;
+        this.container.y = 45;
     }
 
     reset(): void {

@@ -5,10 +5,13 @@ export const GameConstants = {
         timeLimit: 12
     },
     layout: {
-        space: 10,
-        viewport: {
+        viewportPortrait: {
             width: 1080,
             height: 1920
+        },
+        viewportLandscape: {
+            width: 1920,
+            height: 1080
         }
     },
     resources: {

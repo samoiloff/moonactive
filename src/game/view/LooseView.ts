@@ -3,37 +3,58 @@ import {ResourceUtils} from "../utils/ResourceUtils";
 import {GameConstants} from "../constants/GameConstants";
 import {Elastic, gsap, Power2} from 'gsap';
 import {TryAgainButton} from "../components/TryAgainButton";
+import {OrientatedViewBase} from "./OrientatedViewBase";
 
-export class LooseView {
+export class LooseView extends OrientatedViewBase{
 
     container: PIXI.Container;
     circle: PIXI.Sprite;
     text: PIXI.Sprite;
     btn: TryAgainButton;
 
-    constructor() {
+    initialize() {
         this.container = new PIXI.Container();
 
         this.circle = new PIXI.Sprite(ResourceUtils.getTexture(GameConstants.textures.failBg));
         this.circle.anchor.x = 0.5;
         this.circle.anchor.y = 0.5;
-        this.circle.x = 525;
-        this.circle.y = 915;
+
         this.container.addChild(this.circle);
 
         this.text = new PIXI.Sprite(ResourceUtils.getTexture(GameConstants.textures.fail));
         this.text.anchor.x = 0.5;
         this.text.anchor.y = 0.5;
-        this.text.x = 525;
-        this.text.y = 915;
         this.container.addChild(this.text);
 
         this.btn = new TryAgainButton();
-        this.btn.container.x = 165;
-        this.btn.container.y = 1625;
+
         this.container.addChild(this.btn.container);
 
         this.container.visible = false;
+
+        super.initialize();
+    }
+
+    portraitLayout() {
+        this.circle.x = 525;
+        this.circle.y = 915;
+
+        this.text.x = 525;
+        this.text.y = 915;
+
+        this.btn.container.x = 165;
+        this.btn.container.y = 1625;
+    }
+
+    landscapeLayout() {
+        this.circle.x = 980;
+        this.circle.y = 450;
+
+        this.text.x = 980;
+        this.text.y = 450;
+
+        this.btn.container.x = 582;
+        this.btn.container.y = 762;
     }
 
     show(): Promise<any> {

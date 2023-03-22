@@ -20,7 +20,7 @@ export class GameFlowQueueController extends GameControllerBase {
         this.model.dispatch(GameEvent.CELL_OVER_DEACTIVATED);
         this.queue.reset();
         AnimUtil.fadeOut(this.view.looseView.container);
-        AnimUtil.fadeOut(this.view.shadowView);
+        AnimUtil.fadeOut(this.view.shadowView.container);
         this.view.timerView.reset();
         this.view.fieldView.reset();
         this.queue.runFromCommand(this.queue.startTurnCommand);

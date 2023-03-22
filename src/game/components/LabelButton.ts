@@ -13,8 +13,7 @@ export class LabelButton {
   }
 
   initialize(): void {
-    this.container = new PIXI.Sprite();
-    this.container.interactive = true;
+    this.container = new PIXI.Container();
     this.container.interactiveChildren = true;
 
     const texture: PIXI.Texture = this.getTexture();

@@ -37,15 +37,6 @@ export class FieldUtil {
         return result.sort((a, b) => (Math.random() - .5)); // random mix of result
     }
 
-    static getCellPointerOver(pos: PIXI.Point): FieldCellView {
-        const gameView: GameView = dGet(GameView);
-        const interactionManager: PIXI.InteractionManager = gameView.app.renderer.plugins.interaction;
-        const hitTest: any = interactionManager.hitTest(pos, gameView.fieldView.cells[0].container);
-        console.log(interactionManager);
-
-        return null;
-    }
-
     static getIsLevelComplete(): boolean {
         const fieldView: FieldView = dGet(FieldView);
         for (let index: number = 0; index < fieldView.tiles.length; index++) {

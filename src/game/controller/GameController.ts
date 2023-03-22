@@ -26,9 +26,6 @@ export class GameController extends ControllersBase {
 
     protected onGameInitialized(): void {
         console.log("GameController.onGameInitialized()");
-        this.view.background = new PIXI.Sprite();
-        this.view.background.texture = ResourceUtils.getTexture('bg.jpg');
-        this.view.container.addChild(this.view.background);
 
         this.view.init();
 

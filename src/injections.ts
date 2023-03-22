@@ -26,6 +26,7 @@ import {ShowWinViewComand} from "./game/commands/ShowWinViewComand";
 import {ShowLooseViewCommand} from "./game/commands/ShowLooseViewCommand";
 import {WinView} from "./game/view/WinView";
 import {LooseView} from "./game/view/LooseView";
+import {BackgroundView} from "./game/view/BackgroundView";
 
 export function addInjections() {
 
@@ -48,6 +49,7 @@ export function addInjections() {
     dMap(GameModel).asSingletone(); // model
 
     dMap(GameView).asSingletone(); // views
+    dMap(BackgroundView).asSingletone();
     dMap(FieldView).asSingletone();
     dMap(ShadowView).asSingletone();
     dMap(StartView).asSingletone();

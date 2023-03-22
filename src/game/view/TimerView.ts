@@ -5,8 +5,9 @@ import {GameConstants} from "../constants/GameConstants";
 import {GameModel} from "../model/GameModel";
 import {dGet} from "../../common/di/dGet";
 import {GameEvent} from "../constants/GameEvent";
+import {OrientatedViewBase} from "./OrientatedViewBase";
 
-export class TimerView {
+export class TimerView extends OrientatedViewBase{
 
     container: PIXI.Container;
     bg: PIXI.NineSlicePlane;
@@ -14,10 +15,8 @@ export class TimerView {
 
     gameModel: GameModel = dGet(GameModel);
 
-    constructor() {
+    initialize() {
         this.container = new PIXI.Container();
-        this.container.x = 84;
-        this.container.y = 1425;
 
         this.bg = new PIXI.NineSlicePlane(ResourceUtils.getTexture(GameConstants.textures.timerBg), 10, 10, 10, 10);
         this.bg.width = 900;
@@ -27,6 +26,17 @@ export class TimerView {
         this.container.addChild(this.progress);
 
         this.progress.width = 20;
+        super.initialize();
+    }
+
+    portraitLayout() {
+        this.container.x = 84;
+        this.container.y = 1425;
+    }
+
+    landscapeLayout() {
+        this.container.x = 498;
+        this.container.y = 1010;
     }
 
     reset(): void {
