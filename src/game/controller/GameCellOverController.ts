@@ -13,6 +13,8 @@ export class GameCellOverController extends GameControllerBase {
     }
 
     protected onCellOverActivated(): void {
+        // const interaction = this.view.app.renderer.plugins.interaction;
+        // interaction['mouseOverRenderer'] = true;
         this.model.addListener(GameEvent.TILE_OVER, this.onTileOver, this);
         this.model.addListener(GameEvent.TILE_OUT, this.onTileOut, this);
     }

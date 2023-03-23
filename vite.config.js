@@ -1,5 +1,7 @@
 
 import { defineConfig, loadEnv } from 'vite';
+import dns from 'dns';
+dns.setDefaultResultOrder('verbatim')
 
 export default ({mode}) => {
     process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
@@ -10,7 +12,7 @@ export default ({mode}) => {
         base: './',
         server: {
             port: 9004,
-            host: true
+            host: '0.0.0.0'
         },
 
         optimizeDeps: {

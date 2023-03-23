@@ -4,6 +4,7 @@ import {GameEvent} from "../constants/GameEvent";
 import {GameConstants} from "../constants/GameConstants";
 import {OrientationType} from "../constants/OrientationType";
 import {GameController} from "./GameController";
+import {ISizeVO} from "../interfaces/ISizeVO";
 
 export class GameResizeController extends GameControllerBase {
 
@@ -31,21 +32,29 @@ export class GameResizeController extends GameControllerBase {
         }, 300);
     }
 
-    protected resize(): void {
-        this.view.app.renderer.resize(window.innerWidth, window.innerHeight);
+    protected detectSize(): ISizeVO {
+        var ratio = window.devicePixelRatio || 1;
+        return {
+            width: this.view.app.renderer.width,
+            height: this.view.app.renderer.height
+        };
+    }
 
-        console.log(`onResize(window) : ${window.innerWidth}:${window.innerHeight}`);
+    protected resize(): void {
+        const size: ISizeVO = this.detectSize();
+        // this.view.app.renderer.resize(size.width, size.height);
+        console.log(`onResize(window) : ${size.width}:${size.height}`);
         console.log(`onResize(app) : ${this.view.app.view.width}:${this.view.app.view.height}`);
 
-        if (window.innerHeight > window.innerWidth) {
+        if (size.height > size.width) {
             this.model.width = GameConstants.layout.viewportPortrait.width;
             this.model.height = GameConstants.layout.viewportPortrait.height;
             this.model.setOrientation(OrientationType.PORTRAIT);
             LayoutUtils.fitRectIn(
                 this.view.container,
                 {
-                    width: window.innerWidth,
-                    height: window.innerHeight
+                    width: size.width,
+                    height: size.height
                 },
                 GameConstants.layout.viewportPortrait
             )
@@ -56,8 +65,8 @@ export class GameResizeController extends GameControllerBase {
             LayoutUtils.fitRectIn(
                 this.view.container,
                 {
-                    width: window.innerWidth,
-                    height: window.innerHeight
+                    width: size.width,
+                    height: size.height
                 },
                 GameConstants.layout.viewportLandscape
             )

@@ -28,8 +28,7 @@ export class GameView extends ViewBase {
         super(model);
 
         this.app = new PIXI.Application({
-            width: GameConstants.layout.viewportPortrait.width,
-            height: GameConstants.layout.viewportPortrait.height,
+            resizeTo: window,
             antialias: true,
             transparent: false,
             resolution: 1,
