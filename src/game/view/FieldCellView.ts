@@ -49,8 +49,8 @@ export class FieldCellView {
 
         this.hitMc['cell'] = this;
 
-        // this.hitMc.on("pointerover", this.onCellOver, this);
-        // this.hitMc.on("pointerout", this.onCellOut, this);
+        this.hitMc.on("pointerover", this.onCellOver, this);
+        this.hitMc.on("pointerout", this.onCellOut, this);
     }
 
     // protected onTouchMove(event): void {
@@ -68,15 +68,15 @@ export class FieldCellView {
         this.hitMc.interactive = value;
     }
 
-    // onCellOver(event): void {
-    //     this.model.emit(GameEvent.TILE_OVER, this, event);
-    //     event.stopPropagation();
-    // }
-    //
-    // onCellOut(event): void {
-    //     this.model.emit(GameEvent.TILE_OUT, this, event);
-    //     event.stopPropagation();
-    // }
+    onCellOver(event): void {
+        this.model.emit(GameEvent.TILE_OVER, this, event);
+        event.stopPropagation();
+    }
+
+    onCellOut(event): void {
+        this.model.emit(GameEvent.TILE_OUT, this, event);
+        event.stopPropagation();
+    }
 
     onCellDown(event): void {
         this.model.emit(GameEvent.TILE_PRESSED, this, event);

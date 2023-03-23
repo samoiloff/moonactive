@@ -8,25 +8,45 @@ import * as PIXI from "pixi.js";
 
 export class GameCellOverController extends GameControllerBase {
 
-    protected interactionManager: PIXI.InteractionManager;
     protected point: PIXI.Point;
 
     initialize() {
-        this.interactionManager = this.view.app.renderer.plugins.interaction;
         this.model.addListener(GameEvent.CELL_OVER_ACTIVATED, this.onCellOverActivated, this);
         this.model.addListener(GameEvent.CELL_OVER_DEACTIVATED, this.onCellOverDeactivated, this);
     }
 
     protected onCellOverActivated(): void {
-        this.view.container.on("touchmove", this.onPointerMove, this);
-        // this.model.addListener(GameEvent.TILE_OVER, this.onTileOver, this);
-        // this.model.addListener(GameEvent.TILE_OUT, this.onTileOut, this);
+        if (this.view.interactionManager.supportsTouchEvents) {
+            this.view.container.on("touchmove", this.onPointerMove, this);
+        } else {
+            this.model.addListener(GameEvent.TILE_OVER, this.onTileOver, this);
+            this.model.addListener(GameEvent.TILE_OUT, this.onTileOut, this);
+        }
+    }
+
+    protected onCellOverDeactivated(): void {
+        if (this.view.interactionManager.supportsTouchEvents) {
+            this.view.container.off("touchmove", this.onPointerMove, this);
+            if (this.point) {
+                const target = this.view.interactionManager.hitTest(this.point, this.view.fieldView.container);
+                if (target) {
+                    const cell: FieldCellView = target['cell'];
+                    console.log(cell.x + ":" + cell.y);
+                    if (cell) {
+                        this.onTileOver(cell);
+                    }
+                }
+            }
+        } else {
+            this.model.removeListener(GameEvent.TILE_OVER, this.onTileOver, this);
+            this.model.removeListener(GameEvent.TILE_OUT, this.onTileOut, this);
+        }
     }
 
     protected onPointerMove(event): void {
         this.point = event.data.global;
         if (this.point) {
-            const target = this.interactionManager.hitTest(this.point, this.view.fieldView.container);
+            const target = this.view.interactionManager.hitTest(this.point, this.view.fieldView.container);
             if (target) {
                 const cell: FieldCellView = target['cell'];
                 console.log(cell.x + ":" + cell.y);
@@ -39,23 +59,6 @@ export class GameCellOverController extends GameControllerBase {
                 this.onTileOut();
             }
         }
-        // console.log("onPointerMove" + this.point.x + ":" + this.point.y);
-    }
-
-    protected onCellOverDeactivated(): void {
-        this.view.shadowView.container.off("touchmove", this.onPointerMove, this);
-        if (this.point) {
-            const target = this.interactionManager.hitTest(this.point, this.view.fieldView.container);
-            if (target) {
-                const cell: FieldCellView = target['cell'];
-                console.log(cell.x + ":" + cell.y);
-                if (cell) {
-                    this.onTileOver(cell);
-                }
-            }
-        }
-        // this.model.removeListener(GameEvent.TILE_OVER, this.onTileOver, this);
-        // this.model.removeListener(GameEvent.TILE_OUT, this.onTileOut, this);
     }
 
     protected onTileOver(cell: FieldCellView): void {

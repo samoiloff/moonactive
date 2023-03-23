@@ -13,6 +13,8 @@ import {BackgroundView} from "./BackgroundView";
 
 export class GameView extends ViewBase {
     app: PIXI.Application;
+    interactionManager: PIXI.InteractionManager;
+
     container: PIXI.Container;
 
     background: BackgroundView;
@@ -35,6 +37,7 @@ export class GameView extends ViewBase {
             backgroundColor: 0xcfeffc
         });
         document.body.appendChild(this.app.view);
+        this.interactionManager = this.app.renderer.plugins.interaction;
 
         this.container = new PIXI.Container();
         this.container.interactive = true;
